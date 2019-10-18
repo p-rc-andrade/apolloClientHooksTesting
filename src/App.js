@@ -1,6 +1,6 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { ApolloProvider } from "react-apollo";
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { DivContainer, DogImg, SelectInput, ActionBtn } from "./styles/App";
 import { GET_DOGS, GET_DOG_PHOTO } from "./queries";
 
@@ -15,14 +15,13 @@ const App = ({client}) =>{
         {console.log(selectedBreed)}
         {selectedBreed && (
           <DogPhoto breed={selectedBreed}/>
+          // <DelayedDogPhoto breed={selectedBreed}/>
         )}
       </DivContainer>
      
     </ApolloProvider>
   );
 }
-
-
 
 const Dogs = ({ onDogSelected }) => {
   const { loading, error, data } = useQuery(GET_DOGS);
@@ -41,6 +40,28 @@ const Dogs = ({ onDogSelected }) => {
     </SelectInput>
   );
 }
+
+// const DelayedDogPhoto = ({ breed }) => {
+//   const [dog, setDog] = useState(null);
+//   const [getDog, { loading, error, data }] = useLazyQuery(GET_DOG_PHOTO);
+
+//   if (loading) return 'Loading...';
+//   if (error) return `Error! ${error.message}`;
+
+//   if (data && data.dog) {
+//     console.log(data);
+//     setDog(data.dog);
+//   }
+
+//   return (
+//     <div>
+//       {dog && <DogImg src={dog.displayImage} />}
+//       <ActionBtn onClick={() => getDog({ variables: { breed } })}>
+//         Click me!
+//       </ActionBtn>
+//     </div>
+//   );
+// }
 
 const DogPhoto = ({ breed }) => {
   const { loading, error, data, startPolling, 
