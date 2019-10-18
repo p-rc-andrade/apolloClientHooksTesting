@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_DOG_PHOTO } from "./queries";
-import { DogImg, ActionBtn } from "./styles/App";
+import { GET_DOG_PHOTO } from "../queries";
+import { DogImg, ActionBtn } from "../styles/App";
 
 const DogPhoto = ({ breed }) => {
   const {

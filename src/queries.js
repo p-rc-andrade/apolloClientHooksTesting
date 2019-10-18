@@ -18,3 +18,12 @@ export const GET_DOG_PHOTO = gql`
     }
   }
 `;
+
+export const ADD_TODO = gql`
+  mutation AddTodo($type: String!) {
+    addTodo(type: $type) {
+      id
+      type
+    }
+  }
+`;

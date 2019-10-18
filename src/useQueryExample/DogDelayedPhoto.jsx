@@ -1,7 +1,7 @@
 import React from "react";
 import { useLazyQuery } from "@apollo/react-hooks";
-import { GET_DOG_PHOTO } from "./queries";
-import { DogImg, ActionBtn } from "./styles/App";
+import { GET_DOG_PHOTO } from "../queries";
+import { DogImg, ActionBtn } from "../styles/App";
 
 const DogDelayedPhoto = ({ breed }) => {
   const [getDogPhoto, { loading, error, data }] = useLazyQuery(GET_DOG_PHOTO);

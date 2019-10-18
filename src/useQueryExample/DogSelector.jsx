@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_DOGS } from "./queries";
-import { SelectInput } from "./styles/App";
+import { GET_DOGS } from "../queries";
+import { SelectInput } from "../styles/App";
 
 const DogSelector = ({ onDogSelected }) => {
   const { loading, error, data } = useQuery(GET_DOGS);
