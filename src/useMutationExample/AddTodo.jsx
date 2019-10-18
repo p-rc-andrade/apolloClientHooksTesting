@@ -12,16 +12,16 @@ const AddTodo = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          //   addTodo({
-          //     variables: {
-          //       type: input.value
-          //     }
-          //   });
-          console.log(e.target.test.value);
-          //   input.value = "";
+          addTodo({
+            variables: {
+              type: e.target.task.value
+            }
+          });
+          console.log(e.target.task.value);
+          e.target.task.value = "";
         }}
       >
-        <input id="test" />
+        <input id="task" />
         <ActionBtn type="submit">Add Todo</ActionBtn>
       </form>
     </div>
