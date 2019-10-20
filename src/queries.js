@@ -19,6 +19,15 @@ export const GET_DOG_PHOTO = gql`
   }
 `;
 
+export const GET_TODOS = gql`
+  query GetTodos {
+    todos {
+      id
+      type
+    }
+  }
+`;
+
 export const ADD_TODO = gql`
   mutation AddTodo($type: String!) {
     addTodo(type: $type) {
@@ -27,3 +36,13 @@ export const ADD_TODO = gql`
     }
   }
 `;
+
+export const UPDATE_TODO = gql`
+  mutation UpdateTodo($id: String!, $type: String!) {
+    updateTodo(id: $id, type: $type) {
+      id
+      type
+    }
+  }
+`;
+
