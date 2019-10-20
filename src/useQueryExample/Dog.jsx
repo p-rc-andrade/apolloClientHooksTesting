@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { ApolloProvider } from "react-apollo";
 import DogSelector from "./DogSelector";
 import DogPhoto from "./DogPhoto";
 import DogDelayedPhoto from "./DogDelayedPhoto";
 
-const Dog = () => {
+const Dog = ({client}) => {
   const [selectedBreed, setSelectedBreed] = useState(null);
 
   return (
-    <>
+    <ApolloProvider client={client}>
       <h2>
         Dog breed selector{" "}
         <span role="img" aria-label="dog">
@@ -22,7 +23,7 @@ const Dog = () => {
         // <DogPhoto breed={selectedBreed} />
         <DogDelayedPhoto breed={selectedBreed} />
       )}
-    </>
+    </ApolloProvider>
   );
 };
 
